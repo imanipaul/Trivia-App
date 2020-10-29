@@ -7,6 +7,7 @@ import Result from "./Result";
 export default function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(-1);
   const [selectedAnswers, setSelectedAnswers] = useState([]);
+  const [clickable, setClickable] = useState(true);
 
   useEffect(() => {
     console.log("current question is", currentQuestion);
@@ -30,6 +31,8 @@ export default function Quiz() {
           setSelectedAnswers={setSelectedAnswers}
           setCurrentQuestion={setCurrentQuestion}
           currentQuestion={currentQuestion}
+          clickable={clickable}
+          setClickable={setClickable}
         />
       )}
 
@@ -39,6 +42,8 @@ export default function Quiz() {
             currentQuestion === jsonData.length - 1
               ? setCurrentQuestion("result")
               : setCurrentQuestion(currentQuestion + 1);
+
+            setClickable(true);
           }}
         >
           Next
