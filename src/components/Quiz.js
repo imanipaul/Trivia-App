@@ -3,6 +3,7 @@ import Intro from "./Intro";
 import jsonData from "../data/quizData.json";
 import Question from "./Question";
 import Result from "./Result";
+import "../styles/Quiz.scss";
 
 export default function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(-1);

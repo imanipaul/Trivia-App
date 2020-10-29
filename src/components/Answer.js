@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from "react";
+import "../styles/Answer.scss";
 
 export default function Answer(props) {
   const answerRef = useRef(null);
 
   useEffect(() => {
-    answerRef.current.classList.remove("selected");
+    answerRef.current.classList.remove("selected", "correct", "incorrect");
   }, [props.answer]);
 
   const matchAnswers = (selectedAnswer, correctAnswer) => {
@@ -30,7 +31,10 @@ export default function Answer(props) {
               ]);
               props.setClickable(false);
 
-              answerRef.current.classList.add("selected");
+              answerRef.current.classList.add(
+                "selected",
+                props.answer === props.correctAnswer ? "correct" : "incorrect"
+              );
               matchAnswers(props.answer, props.correctAnswer);
             }
           : undefined

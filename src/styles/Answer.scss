@@ -1,0 +1,21 @@
+.answer {
+  border: 1px solid gray;
+  padding: 10px 0px;
+
+  &:not(.selected):hover {
+    background-color: gray;
+    color: white;
+  }
+}
+
+.selected {
+  color: white;
+}
+
+.correct {
+  background-color: palegreen;
+}
+
+.incorrect {
+  background-color: palevioletred;
+}
