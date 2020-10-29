@@ -22,7 +22,7 @@ export default function Quiz() {
           currentQuestion={currentQuestion}
         />
       ) : currentQuestion === "result" ? (
-        <Result selectedAnswers={selectedAnswers} />
+        <Result selectedAnswers={selectedAnswers} score={score} />
       ) : (
         <Question
           currentQuestion={currentQuestion}
