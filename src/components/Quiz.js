@@ -20,7 +20,7 @@ export default function Quiz() {
           currentQuestion={currentQuestion}
         />
       ) : (
-        <Question />
+        <Question currentQuestion={currentQuestion} />
       )}
     </section>
   );
