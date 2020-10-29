@@ -1,14 +1,11 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect } from "react";
 import "../styles/Question.scss";
 import Answer from "./Answer";
 
 export default function Question(props) {
   let allAnswers = [props.data.correct, ...props.data.incorrect];
 
-  useEffect(() => {
-    console.log("current question data", props.data);
-    console.log("all answers", allAnswers);
-  }, [props.data, allAnswers]);
+  useEffect(() => {}, [props.data, allAnswers]);
 
   return (
     <section className="question">
@@ -23,7 +20,6 @@ export default function Question(props) {
             selectedAnswers={props.selectedAnswers}
             clickable={props.clickable}
             setClickable={props.setClickable}
-            // currentAnswer={props.currentAnswer}
           />
         ))}
       </div>

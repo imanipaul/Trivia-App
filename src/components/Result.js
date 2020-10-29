@@ -1,5 +1,15 @@
 import React from "react";
 
-export default function Result() {
-  return <section className="result">Results!!</section>;
+export default function Result(props) {
+  return (
+    <section className="result">
+      Results!!
+      <p>Your selected answers were:</p>
+      {props.selectedAnswers.map((answer, index) => (
+        <p key={index}>
+          {index + 1} : {answer}
+        </p>
+      ))}
+    </section>
+  );
 }
