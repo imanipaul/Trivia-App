@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function Intro(props) {
+export default function Intro() {
   return (
     <section className="intro">
-      This is the intro. Click the button to start the quiz.
+      Ready to play the Tandem Trivia Game? Click the button below to start!
     </section>
   );
 }
