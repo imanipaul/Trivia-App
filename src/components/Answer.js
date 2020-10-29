@@ -4,7 +4,6 @@ export default function Answer(props) {
   const answerRef = useRef(null);
 
   useEffect(() => {
-    console.log("correct answer is", props.correctAnswer);
     answerRef.current.classList.remove("selected");
   }, [props.answer]);
 

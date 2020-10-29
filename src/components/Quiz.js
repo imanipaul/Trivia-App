@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import Intro from "./Intro";
 import jsonData from "../data/quizData.json";
 import Question from "./Question";
@@ -12,7 +12,7 @@ export default function Quiz() {
 
   useEffect(() => {
     console.log("score is", score);
-  }, [currentQuestion, selectedAnswers]);
+  }, [score]);
 
   return (
     <section className="quiz">
@@ -26,11 +26,10 @@ export default function Quiz() {
       ) : (
         <Question
           currentQuestion={currentQuestion}
+          setCurrentQuestion={setCurrentQuestion}
           data={jsonData[currentQuestion]}
           selectedAnswers={selectedAnswers}
           setSelectedAnswers={setSelectedAnswers}
-          setCurrentQuestion={setCurrentQuestion}
-          currentQuestion={currentQuestion}
           clickable={clickable}
           setClickable={setClickable}
           score={score}

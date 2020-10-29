@@ -1,11 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "../styles/Question.scss";
 import Answer from "./Answer";
 
 export default function Question(props) {
   let allAnswers = [props.data.correct, ...props.data.incorrect];
-
-  useEffect(() => {}, [props.data, allAnswers]);
 
   return (
     <section className="question">
