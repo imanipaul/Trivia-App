@@ -5,10 +5,9 @@ import Question from "./Question";
 
 export default function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(-1);
+  const [selectedAnswers, setSelectedAnswers] = useState([]);
 
   useEffect(() => {
-    console.log("json data is", jsonData);
-    console.log("json length", jsonData.length);
     console.log("current question is", currentQuestion);
   }, [currentQuestion]);
 
@@ -21,7 +20,14 @@ export default function Quiz() {
           currentQuestion={currentQuestion}
         />
       ) : (
-        <Question currentQuestion={currentQuestion} />
+        <Question
+          currentQuestion={currentQuestion}
+          data={jsonData[currentQuestion]}
+          selectedAnswers={selectedAnswers}
+          setSelectedAnswers={setSelectedAnswers}
+          setCurrentQuestion={setCurrentQuestion}
+          currentQuestion={currentQuestion}
+        />
       )}
       <button
         onClick={() => {
