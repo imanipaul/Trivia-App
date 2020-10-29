@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Intro from "./Intro";
 import jsonData from "../data/quizData.json";
 import Question from "./Question";
+import Result from "./Result";
 
 export default function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(-1);
@@ -18,6 +19,8 @@ export default function Quiz() {
           setCurrentQuestion={setCurrentQuestion}
           currentQuestion={currentQuestion}
         />
+      ) : currentQuestion === "result" ? (
+        <Result />
       ) : (
         <Question
           currentQuestion={currentQuestion}
@@ -28,15 +31,18 @@ export default function Quiz() {
           currentQuestion={currentQuestion}
         />
       )}
-      <button
-        onClick={() => {
-          currentQuestion === jsonData.length - 1
-            ? console.log("done")
-            : setCurrentQuestion(currentQuestion + 1);
-        }}
-      >
-        Next
-      </button>
+
+      {currentQuestion !== "result" && (
+        <button
+          onClick={() => {
+            currentQuestion === jsonData.length - 1
+              ? setCurrentQuestion("result")
+              : setCurrentQuestion(currentQuestion + 1);
+          }}
+        >
+          Next
+        </button>
+      )}
     </section>
   );
 }
