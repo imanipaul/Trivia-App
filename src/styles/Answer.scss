@@ -2,14 +2,13 @@
   border: 1px solid gray;
   padding: 10px 0px;
 
-  &:hover {
+  &:not(.selected):hover {
     background-color: gray;
     color: white;
   }
 }
 
 .selected {
-  // background-color: gray;
   color: white;
 }
 
