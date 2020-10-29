@@ -8,6 +8,7 @@ export default function Quiz() {
 
   useEffect(() => {
     console.log("json data is", jsonData);
+    console.log("json length", jsonData.length);
     console.log("current question is", currentQuestion);
   }, [currentQuestion]);
 
@@ -22,6 +23,15 @@ export default function Quiz() {
       ) : (
         <Question currentQuestion={currentQuestion} />
       )}
+      <button
+        onClick={() => {
+          currentQuestion === jsonData.length - 1
+            ? console.log("done")
+            : setCurrentQuestion(currentQuestion + 1);
+        }}
+      >
+        Start
+      </button>
     </section>
   );
 }
