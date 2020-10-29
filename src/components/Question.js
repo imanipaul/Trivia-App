@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "../styles/Question.scss";
 import Answer from "./Answer";
 
 export default function Question(props) {
-  //   const [clickable, setClickable] = useState(true);
-
   let allAnswers = [props.data.correct, ...props.data.incorrect];
 
   useEffect(() => {
@@ -25,6 +23,7 @@ export default function Question(props) {
             selectedAnswers={props.selectedAnswers}
             clickable={props.clickable}
             setClickable={props.setClickable}
+            // currentAnswer={props.currentAnswer}
           />
         ))}
       </div>

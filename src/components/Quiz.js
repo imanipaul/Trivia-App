@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Intro from "./Intro";
 import jsonData from "../data/quizData.json";
 import Question from "./Question";
@@ -8,6 +8,7 @@ export default function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(-1);
   const [selectedAnswers, setSelectedAnswers] = useState([]);
   const [clickable, setClickable] = useState(true);
+  //   const currentAnswer = useRef(null);
 
   useEffect(() => {
     console.log("current question is", currentQuestion);
@@ -33,6 +34,7 @@ export default function Quiz() {
           currentQuestion={currentQuestion}
           clickable={clickable}
           setClickable={setClickable}
+          //   currentAnswer={currentAnswer}
         />
       )}
 
@@ -44,6 +46,8 @@ export default function Quiz() {
               : setCurrentQuestion(currentQuestion + 1);
 
             setClickable(true);
+            // console.log("current answer ref", currentAnswer.current);
+            // currentAnswer && currentAnswer.current.classList.remove("selected");
           }}
         >
           Next

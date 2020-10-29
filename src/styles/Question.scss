@@ -6,6 +6,11 @@
   .answers {
     width: 40%;
 
+    .selected {
+      background-color: gray;
+      color: white;
+    }
+
     div {
       border: 1px solid gray;
       padding: 10px 0px;
