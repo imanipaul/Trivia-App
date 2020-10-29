@@ -10,7 +10,8 @@ export default function Quiz() {
 
   useEffect(() => {
     console.log("current question is", currentQuestion);
-  }, [currentQuestion]);
+    console.log("selected answers is", selectedAnswers);
+  }, [currentQuestion, selectedAnswers]);
 
   return (
     <section className="quiz">

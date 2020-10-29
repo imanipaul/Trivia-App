@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import "../styles/Question.scss";
 
 export default function Question(props) {
   let allAnswers = [props.data.correct, ...props.data.incorrect];
@@ -12,9 +13,18 @@ export default function Question(props) {
     <section className="question">
       <h1>Question # {props.currentQuestion + 1}</h1>
       <h2>{props.data.question}</h2>
-      {allAnswers.map((answer, index) => (
-        <p key={index}>{answer}</p>
-      ))}
+      <div className="answers">
+        {allAnswers.map((answer, index) => (
+          <p
+            key={index}
+            onClick={() =>
+              props.setSelectedAnswers([...props.selectedAnswers, answer])
+            }
+          >
+            {answer}
+          </p>
+        ))}
+      </div>
     </section>
   );
 }
