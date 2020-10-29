@@ -13,7 +13,6 @@ export default function Quiz() {
 
   return (
     <section className="quiz">
-      Quiz component
       {currentQuestion === -1 ? (
         <Intro
           setCurrentQuestion={setCurrentQuestion}
@@ -36,7 +35,7 @@ export default function Quiz() {
             : setCurrentQuestion(currentQuestion + 1);
         }}
       >
-        Start
+        Next
       </button>
     </section>
   );
