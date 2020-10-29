@@ -1,0 +1,24 @@
+.question {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .answers {
+    width: 40%;
+
+    .selected {
+      background-color: gray;
+      color: white;
+    }
+
+    div {
+      border: 1px solid gray;
+      padding: 10px 0px;
+
+      &:hover {
+        background-color: gray;
+        color: white;
+      }
+    }
+  }
+}
