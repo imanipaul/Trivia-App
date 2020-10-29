@@ -20,6 +20,9 @@ export default function Question(props) {
             selectedAnswers={props.selectedAnswers}
             clickable={props.clickable}
             setClickable={props.setClickable}
+            score={props.score}
+            setScore={props.setScore}
+            correctAnswer={props.data.correct}
           />
         ))}
       </div>

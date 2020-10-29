@@ -8,10 +8,10 @@ export default function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(-1);
   const [selectedAnswers, setSelectedAnswers] = useState([]);
   const [clickable, setClickable] = useState(true);
+  const [score, setScore] = useState(0);
 
   useEffect(() => {
-    console.log("current question is", currentQuestion);
-    console.log("selected answers is", selectedAnswers);
+    console.log("score is", score);
   }, [currentQuestion, selectedAnswers]);
 
   return (
@@ -33,6 +33,8 @@ export default function Quiz() {
           currentQuestion={currentQuestion}
           clickable={clickable}
           setClickable={setClickable}
+          score={score}
+          setScore={setScore}
         />
       )}
 

@@ -4,9 +4,18 @@ export default function Answer(props) {
   const answerRef = useRef(null);
 
   useEffect(() => {
-    console.log("---the answer ref is now---", answerRef.current);
+    console.log("correct answer is", props.correctAnswer);
     answerRef.current.classList.remove("selected");
   }, [props.answer]);
+
+  const matchAnswers = (selectedAnswer, correctAnswer) => {
+    if (selectedAnswer === correctAnswer) {
+      console.log("~~~You chose correctly!!~~~");
+      props.setScore(props.score + 1);
+    } else {
+      console.log("Thats wrong");
+    }
+  };
 
   return (
     <div
@@ -23,6 +32,7 @@ export default function Answer(props) {
               props.setClickable(false);
 
               answerRef.current.classList.add("selected");
+              matchAnswers(props.answer, props.correctAnswer);
             }
           : undefined
       }
