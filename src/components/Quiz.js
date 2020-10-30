@@ -12,8 +12,31 @@ export default function Quiz() {
   const [score, setScore] = useState(0);
 
   useEffect(() => {
-    console.log("score is", score);
-  }, [score]);
+    // console.log("score is", score);
+    console.log("selected answers: ", selectedAnswers);
+    console.log("selected answers length: ", selectedAnswers.length);
+    console.log("current question: ", currentQuestion);
+  }, [selectedAnswers, currentQuestion]);
+
+  const setButtonState = (status) => {
+    switch (status) {
+      case -1:
+        return "Let's Start!";
+      case "result":
+        return "Play Again?";
+      case jsonData.length - 1:
+        return "See Your Results!";
+      default:
+        return "Next";
+    }
+  };
+
+  const resetGame = () => {
+    setSelectedAnswers([]);
+    setCurrentQuestion(-1);
+    setClickable(true);
+    setScore(0);
+  };
 
   return (
     <section className={currentQuestion === -1 ? "quiz intro" : "quiz"}>
@@ -37,20 +60,28 @@ export default function Quiz() {
           setScore={setScore}
         />
       )}
-
-      {currentQuestion !== "result" && (
-        <button
-          onClick={() => {
-            currentQuestion === jsonData.length - 1
-              ? setCurrentQuestion("result")
-              : setCurrentQuestion(currentQuestion + 1);
-
-            setClickable(true);
-          }}
-        >
-          {currentQuestion === -1 ? "Let's Start" : "Next"}
-        </button>
-      )}
+      <button
+        className={
+          currentQuestion === selectedAnswers.length ? "unavailable" : ""
+        }
+        onClick={() => {
+          if (currentQuestion === jsonData.length - 1) {
+            setCurrentQuestion("result");
+          } else if (currentQuestion === "result") {
+            resetGame();
+          } else {
+            if (currentQuestion === selectedAnswers.length) {
+              console.log("no answer chosen!");
+              return;
+            } else {
+              setCurrentQuestion(currentQuestion + 1);
+            }
+          }
+          setClickable(true);
+        }}
+      >
+        {setButtonState(currentQuestion)}
+      </button>
     </section>
   );
 }
