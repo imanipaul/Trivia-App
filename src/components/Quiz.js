@@ -61,6 +61,9 @@ export default function Quiz() {
         />
       )}
       <button
+        className={
+          currentQuestion === selectedAnswers.length ? "unavailable" : ""
+        }
         onClick={() => {
           if (currentQuestion === jsonData.length - 1) {
             setCurrentQuestion("result");

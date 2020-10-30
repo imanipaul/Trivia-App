@@ -33,6 +33,10 @@
     font-weight: 400;
     font-size: 22px;
 
+    &.unavailable {
+      cursor: not-allowed;
+    }
+
     @media screen and (max-width: 426px) {
       margin-bottom: 0px;
     }
