@@ -48,7 +48,7 @@ export default function Quiz() {
             setClickable(true);
           }}
         >
-          {currentQuestion === -1 ? "Start" : "Next"}
+          {currentQuestion === -1 ? "Let's Start" : "Next"}
         </button>
       )}
     </section>
