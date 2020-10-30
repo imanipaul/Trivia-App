@@ -2,23 +2,27 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: "Roboto", sans-serif;
+  flex-grow: 1;
+  width: 100%;
+
+  h1 {
+    font-size: 32px;
+    font-weight: 400;
+  }
+
+  h2 {
+    font-size: 32px;
+    font-weight: 300;
+  }
 
   .answers {
-    width: 40%;
-
-    // .selected {
-    //   background-color: gray;
-    //   color: white;
-    // }
-
-    // div {
-    //   border: 1px solid gray;
-    //   padding: 10px 0px;
-
-    //   &:hover {
-    //     background-color: gray;
-    //     color: white;
-    //   }
-    // }
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
   }
 }

@@ -1,6 +1,6 @@
 import React from "react";
-import "../styles/Question.scss";
 import Answer from "./Answer";
+import "../styles/Question.scss";
 
 export default function Question(props) {
   let allAnswers = [props.data.correct, ...props.data.incorrect];
