@@ -15,6 +15,19 @@ export default function Quiz() {
     console.log("score is", score);
   }, [score]);
 
+  const setButtonState = (status) => {
+    switch (status) {
+      case -1:
+        return "Let's Start!";
+      case "result":
+        return "Play Again?";
+      case jsonData.length - 1:
+        return "See Your Results!";
+      default:
+        return "Next";
+    }
+  };
+
   return (
     <section className={currentQuestion === -1 ? "quiz intro" : "quiz"}>
       {currentQuestion === -1 ? (
@@ -48,7 +61,8 @@ export default function Quiz() {
             setClickable(true);
           }}
         >
-          {currentQuestion === -1 ? "Let's Start" : "Next"}
+          {/* {currentQuestion === -1 ? "Let's Start" : "Next"} */}
+          {setButtonState(currentQuestion)}
         </button>
       )}
     </section>
