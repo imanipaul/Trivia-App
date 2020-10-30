@@ -28,6 +28,13 @@ export default function Quiz() {
     }
   };
 
+  const resetGame = () => {
+    setSelectedAnswers([]);
+    setCurrentQuestion(-1);
+    setClickable(true);
+    setScore(0);
+  };
+
   return (
     <section className={currentQuestion === -1 ? "quiz intro" : "quiz"}>
       {currentQuestion === -1 ? (
@@ -55,15 +62,10 @@ export default function Quiz() {
           if (currentQuestion === jsonData.length - 1) {
             setCurrentQuestion("result");
           } else if (currentQuestion === "result") {
-            setCurrentQuestion(-1);
+            resetGame();
           } else {
             setCurrentQuestion(currentQuestion + 1);
           }
-
-          // currentQuestion === jsonData.length - 1
-          //   ? setCurrentQuestion("result")
-          //   : setCurrentQuestion(currentQuestion + 1);
-
           setClickable(true);
         }}
       >
