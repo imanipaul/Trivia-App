@@ -12,9 +12,12 @@
   font-size: 24px;
   padding-left: 20px;
   background-color: white;
+  transition: all 0.5s ease;
+}
 
+.clickable {
   &:not(.selected):hover {
-    background-color: gray;
+    background-color: black;
     color: white;
   }
 }
@@ -28,5 +31,5 @@
 }
 
 .incorrect {
-  background-color: #f06f6f;
+  background-color: #ef6d5f;
 }

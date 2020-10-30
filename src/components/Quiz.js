@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Intro from "./Intro";
 import jsonData from "../data/quizData.json";
 import Question from "./Question";
@@ -10,6 +10,7 @@ export default function Quiz() {
   const [selectedAnswers, setSelectedAnswers] = useState([]);
   const [clickable, setClickable] = useState(true);
   const [score, setScore] = useState(0);
+  const buttonRef = useRef(null);
 
   useEffect(() => {
     // console.log("score is", score);
@@ -61,8 +62,11 @@ export default function Quiz() {
         />
       )}
       <button
+        ref={buttonRef}
         className={
-          currentQuestion === selectedAnswers.length ? "unavailable" : ""
+          currentQuestion === selectedAnswers.length
+            ? "unavailable"
+            : "available"
         }
         onClick={() => {
           if (currentQuestion === jsonData.length - 1) {
@@ -75,6 +79,7 @@ export default function Quiz() {
               return;
             } else {
               setCurrentQuestion(currentQuestion + 1);
+              // buttonRef.current.classList.add('')
             }
           }
           setClickable(true);

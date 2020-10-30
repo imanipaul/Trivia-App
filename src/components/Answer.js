@@ -6,7 +6,18 @@ export default function Answer(props) {
 
   useEffect(() => {
     answerRef.current.classList.remove("selected", "correct", "incorrect");
+    console.log("props clickable", props.clickable);
+    // props.clickable
+    //   ? answerRef.current.classList.add("clickable")
+    //   : answerRef.current.classList.remove("clickable");
   }, [props.answer]);
+
+  useEffect(() => {
+    console.log("props clickable", props.clickable);
+    props.clickable
+      ? answerRef.current.classList.add("clickable")
+      : answerRef.current.classList.remove("clickable");
+  }, [props.clickable]);
 
   const matchAnswers = (selectedAnswer, correctAnswer) => {
     if (selectedAnswer === correctAnswer) {
@@ -30,6 +41,8 @@ export default function Answer(props) {
                 props.answer,
               ]);
               props.setClickable(false);
+
+              console.log("answer ref current", answerRef.current);
 
               answerRef.current.classList.add(
                 "selected",
