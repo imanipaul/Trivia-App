@@ -50,21 +50,25 @@ export default function Quiz() {
           setScore={setScore}
         />
       )}
+      <button
+        onClick={() => {
+          if (currentQuestion === jsonData.length - 1) {
+            setCurrentQuestion("result");
+          } else if (currentQuestion === "result") {
+            setCurrentQuestion(-1);
+          } else {
+            setCurrentQuestion(currentQuestion + 1);
+          }
 
-      {currentQuestion !== "result" && (
-        <button
-          onClick={() => {
-            currentQuestion === jsonData.length - 1
-              ? setCurrentQuestion("result")
-              : setCurrentQuestion(currentQuestion + 1);
+          // currentQuestion === jsonData.length - 1
+          //   ? setCurrentQuestion("result")
+          //   : setCurrentQuestion(currentQuestion + 1);
 
-            setClickable(true);
-          }}
-        >
-          {/* {currentQuestion === -1 ? "Let's Start" : "Next"} */}
-          {setButtonState(currentQuestion)}
-        </button>
-      )}
+          setClickable(true);
+        }}
+      >
+        {setButtonState(currentQuestion)}
+      </button>
     </section>
   );
 }
