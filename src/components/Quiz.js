@@ -76,7 +76,6 @@ export default function Quiz() {
               return;
             } else {
               setCurrentQuestion(currentQuestion + 1);
-              // buttonRef.current.classList.add('')
             }
           }
           setClickable(true);

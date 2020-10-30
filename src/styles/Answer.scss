@@ -23,9 +23,7 @@
 
 .clickable {
   &:not(.selected):hover {
-    // background-color: black;
     transform: translateY(-10px);
-    // color: white;
   }
 }
 
