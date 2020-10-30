@@ -35,7 +35,7 @@ export default function Quiz() {
 
   return (
     <section className={currentQuestion === -1 ? "quiz intro" : "quiz"}>
-      <ProgressTracker />
+      <ProgressTracker currentQuestion={currentQuestion} />
       {currentQuestion === -1 ? (
         <Intro
           setCurrentQuestion={setCurrentQuestion}

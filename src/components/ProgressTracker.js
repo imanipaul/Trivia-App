@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "../styles/ProgressTracker.scss";
 
-export default function ProgressTracker() {
-  return <section className="progress-tracker">Progress Tracker</section>;
+export default function ProgressTracker(props) {
+  let trackerRef = useRef(null);
+  let totalWidth;
+
+  useEffect(() => {
+    totalWidth = trackerRef.current.clientWidth;
+    console.log("totalWidth", totalWidth);
+  });
+
+  return <section ref={trackerRef} className="progress-tracker"></section>;
 }
