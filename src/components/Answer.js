@@ -13,13 +13,12 @@ export default function Answer(props) {
       answerRef.current.classList.add("clickable");
     } else {
       answerRef.current.classList.remove("clickable");
+      //if answer is not clickable and it is correct, update class
       if (props.answer === props.correctAnswer) {
         answerRef.current.classList.add("correct");
       }
     }
-
-    //if not clickable, and answer matches correct answer, change style to correct style
-  }, [props.clickable]);
+  }, [props.clickable, props.answer, props.correctAnswer]);
 
   const matchAnswers = (selectedAnswer, correctAnswer) => {
     if (selectedAnswer === correctAnswer) {
