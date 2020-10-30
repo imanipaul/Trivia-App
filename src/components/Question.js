@@ -8,15 +8,16 @@ export default function Question(props) {
   const [shuffled, setShuffled] = useState(false);
 
   useEffect(() => {
-    setShuffled(false);
-    setShuffledAnswers([]);
+    resetAnswers();
     shuffleAnswers(allAnswers);
-    console.log("allAnswers", allAnswers);
-    // console.log("allAnswers", allAnswers);
   }, [props.currentQuestion]);
 
+  const resetAnswers = () => {
+    setShuffled(false);
+    setShuffledAnswers([]);
+  };
+
   const shuffleAnswers = (answersArray) => {
-    console.log("answers array start", answersArray);
     for (let i = answersArray.length - 1; i > 0; i--) {
       const val = Math.floor(Math.random() * i);
       const hold = answersArray[i];
@@ -24,7 +25,6 @@ export default function Question(props) {
       answersArray[val] = hold;
     }
     setShuffledAnswers(answersArray);
-    console.log("answers array finish", answersArray);
     setShuffled(true);
   };
 
@@ -33,7 +33,7 @@ export default function Question(props) {
       <h1>Question # {props.currentQuestion + 1}</h1>
       <h2>{props.data.question}</h2>
       <div className="answers">
-        {shuffled ? (
+        {shuffled &&
           shuffledAnswers.map((answer, index) => (
             <Answer
               key={index}
@@ -46,10 +46,7 @@ export default function Question(props) {
               setScore={props.setScore}
               correctAnswer={props.data.correct}
             />
-          ))
-        ) : (
-          <p>loading {console.log("loading shuffled answers")}</p>
-        )}
+          ))}
       </div>
     </section>
   );

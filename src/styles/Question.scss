@@ -6,14 +6,25 @@
   flex-grow: 1;
   width: 100%;
 
+  @media screen and (max-width: 426px) {
+    flex-grow: inherit;
+  }
+
   h1 {
     font-size: 32px;
     font-weight: 400;
+    @media screen and (max-width: 426px) {
+      font-size: 28px;
+    }
   }
 
   h2 {
     font-size: 32px;
     font-weight: 300;
+    @media screen and (max-width: 426px) {
+      font-size: 28px;
+      height: 100px;
+    }
   }
 
   .answers {
