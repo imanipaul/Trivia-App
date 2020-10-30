@@ -16,7 +16,7 @@ export default function Quiz() {
   }, [score]);
 
   return (
-    <section className="quiz">
+    <section className={currentQuestion === -1 ? "quiz intro" : "quiz"}>
       {currentQuestion === -1 ? (
         <Intro
           setCurrentQuestion={setCurrentQuestion}
