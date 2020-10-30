@@ -10,6 +10,10 @@
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     margin-top: 100px;
+
+    @media screen and (max-width: 426px) {
+      margin-top: 0px;
+    }
   }
 
   h2 {
@@ -18,5 +22,9 @@
     font-weight: 200;
     width: 50%;
     margin-top: 1em;
+
+    @media screen and (max-width: 426px) {
+      width: 70%;
+    }
   }
 }
