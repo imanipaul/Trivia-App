@@ -6,44 +6,45 @@ export default function Answer(props) {
 
   useEffect(() => {
     answerRef.current.classList.remove("selected", "correct", "incorrect");
-    console.log("props clickable", props.clickable);
-    // props.clickable
-    //   ? answerRef.current.classList.add("clickable")
-    //   : answerRef.current.classList.remove("clickable");
   }, [props.answer]);
 
   useEffect(() => {
-    console.log("props clickable", props.clickable);
-    props.clickable
-      ? answerRef.current.classList.add("clickable")
-      : answerRef.current.classList.remove("clickable");
-  }, [props.clickable]);
+    if (props.clickable) {
+      answerRef.current.classList.add("clickable");
+    } else {
+      answerRef.current.classList.remove("clickable");
+      //if answer is not clickable and it is correct, update class
+      if (props.answer === props.correctAnswer) {
+        answerRef.current.classList.add("correct");
+      }
+    }
+  }, [props.clickable, props.answer, props.correctAnswer]);
 
   const matchAnswers = (selectedAnswer, correctAnswer) => {
     if (selectedAnswer === correctAnswer) {
-      console.log("~~~You chose correctly!!~~~");
       props.setScore(props.score + 1);
-    } else {
-      console.log("Thats wrong");
     }
   };
 
   return (
     <div
       ref={answerRef}
-      className="answer"
+      className={"answer"}
       style={{ cursor: props.clickable ? "default" : "not-allowed" }}
       onClick={
+        //if answers are clickable...
         props.clickable
           ? () => {
+              //...add value to select answers array
               props.setSelectedAnswers([
                 ...props.selectedAnswers,
                 props.answer,
               ]);
+
+              //make all other buttons unclickable
               props.setClickable(false);
 
-              console.log("answer ref current", answerRef.current);
-
+              //update classes for styling
               answerRef.current.classList.add(
                 "selected",
                 props.answer === props.correctAnswer ? "correct" : "incorrect"
