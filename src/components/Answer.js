@@ -9,9 +9,16 @@ export default function Answer(props) {
   }, [props.answer]);
 
   useEffect(() => {
-    props.clickable
-      ? answerRef.current.classList.add("clickable")
-      : answerRef.current.classList.remove("clickable");
+    if (props.clickable) {
+      answerRef.current.classList.add("clickable");
+    } else {
+      answerRef.current.classList.remove("clickable");
+      if (props.answer === props.correctAnswer) {
+        answerRef.current.classList.add("correct");
+      }
+    }
+
+    //if not clickable, and answer matches correct answer, change style to correct style
   }, [props.clickable]);
 
   const matchAnswers = (selectedAnswer, correctAnswer) => {
@@ -23,17 +30,22 @@ export default function Answer(props) {
   return (
     <div
       ref={answerRef}
-      className="answer"
+      className={"answer"}
       style={{ cursor: props.clickable ? "default" : "not-allowed" }}
       onClick={
+        //if answers are clickable...
         props.clickable
           ? () => {
+              //...add value to select answers array
               props.setSelectedAnswers([
                 ...props.selectedAnswers,
                 props.answer,
               ]);
+
+              //make all other buttons unclickable
               props.setClickable(false);
 
+              //update classes for styling
               answerRef.current.classList.add(
                 "selected",
                 props.answer === props.correctAnswer ? "correct" : "incorrect"
