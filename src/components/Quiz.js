@@ -1,8 +1,9 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Intro from "./Intro";
 import jsonData from "../data/quizData.json";
 import Question from "./Question";
 import Result from "./Result";
+import ProgressTracker from "./ProgressTracker";
 import "../styles/Quiz.scss";
 
 export default function Quiz() {
@@ -34,6 +35,10 @@ export default function Quiz() {
 
   return (
     <section className={currentQuestion === -1 ? "quiz intro" : "quiz"}>
+      <ProgressTracker
+        currentQuestion={currentQuestion}
+        totalQuestions={jsonData.length}
+      />
       {currentQuestion === -1 ? (
         <Intro
           setCurrentQuestion={setCurrentQuestion}
@@ -76,7 +81,6 @@ export default function Quiz() {
               return;
             } else {
               setCurrentQuestion(currentQuestion + 1);
-              // buttonRef.current.classList.add('')
             }
           }
           setClickable(true);
