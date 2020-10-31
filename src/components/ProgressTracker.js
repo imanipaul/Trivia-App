@@ -46,7 +46,7 @@ export default function ProgressTracker(props) {
 
   return (
     <section ref={trackerRef} className="progress-tracker">
-      <div className="progress"></div>
+      <div className="progress" style={{ width: completedWidth }}></div>
     </section>
   );
 }
