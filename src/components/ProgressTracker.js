@@ -1,14 +1,24 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../styles/ProgressTracker.scss";
 
 export default function ProgressTracker(props) {
   let trackerRef = useRef(null);
-  let totalWidth;
+  const [totalWidth, setTotalWidth] = useState(
+    trackerRef.current && trackerRef.current.clientWidth
+  );
 
   useEffect(() => {
-    totalWidth = trackerRef.current.clientWidth;
-    console.log("totalWidth", totalWidth);
-  });
+    setTotalWidth(trackerRef.current.clientWidth);
+
+    window.addEventListener("resize", () =>
+      setTotalWidth(trackerRef.current.clientWidth)
+    );
+
+    return () =>
+      window.removeEventListener("resize", () =>
+        setTotalWidth(trackerRef.current.clientWidth)
+      );
+  }, []);
 
   return <section ref={trackerRef} className="progress-tracker"></section>;
 }
