@@ -38,7 +38,11 @@ export default function Answer(props) {
               //...add value to select answers array
               props.setSelectedAnswers([
                 ...props.selectedAnswers,
-                props.answer,
+                {
+                  value: props.answer,
+                  correct: props.answer === props.correctAnswer,
+                },
+                // props.answer,
               ]);
 
               //make all other buttons unclickable

@@ -10,8 +10,16 @@ export default function Result(props) {
       </h2>
       <div className="result-answer-container">
         {props.selectedAnswers.map((answer, index) => (
-          <p key={index} className="result-answer">
-            {index + 1} : {answer}
+          <p
+            key={index}
+            className="result-answer"
+            className={
+              answer.correct
+                ? "result-answer correct"
+                : "result-answer incorrect"
+            }
+          >
+            {index + 1} : {answer.value}
           </p>
         ))}
       </div>

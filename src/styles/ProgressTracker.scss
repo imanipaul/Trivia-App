@@ -4,14 +4,12 @@
   width: 80%;
   border: 1px solid black;
   border-radius: 20px;
-  background-color: rgba(0, 0, 0, 0.507);
+  background-color: rgba(0, 0, 0, 0.307);
   height: 15px;
   display: flex;
 
   .progress {
     background-color: #e1ef5f;
-    // background: linear-gradient(90deg, #6d5fef -38.29%, #db95fa 100%);
-    // background: linear-gradient(90deg, #ef5f5f -38.29%, #faf895 100%);
     border-radius: 20px;
     transition: width 0.5s ease;
   }
