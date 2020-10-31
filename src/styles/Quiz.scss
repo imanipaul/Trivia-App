@@ -24,6 +24,17 @@
     }
   }
 
+  &.result {
+    button {
+      margin-top: 0px;
+
+      @media screen and (max-width: 950px) {
+        // margin-bottom: 0px;
+        margin-top: 1em;
+      }
+    }
+  }
+
   button {
     width: 200px;
     height: 70px;
@@ -35,7 +46,7 @@
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-size: 22px;
-    margin-top: 5em;
+    margin-top: 12vw;
     transition: box-shadow 0.5s ease, transform 0.5s ease;
 
     &.unavailable {
@@ -51,7 +62,7 @@
       }
     }
 
-    @media screen and (max-width: 900px) {
+    @media screen and (max-width: 950px) {
       // margin-bottom: 0px;
       margin-top: 1em;
     }

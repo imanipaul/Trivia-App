@@ -9,6 +9,9 @@
   h1 {
     font-size: 32px;
     font-weight: 400;
+    margin: 0px;
+    margin-bottom: 1em;
+
     @media screen and (max-width: 426px) {
       font-size: 28px;
       margin: 0px;
@@ -17,8 +20,10 @@
   }
 
   h2 {
+    margin: 0px;
     font-size: 32px;
     font-weight: 300;
+    margin-bottom: 1em;
     @media screen and (max-width: 426px) {
       font-size: 28px;
       margin: 0px;
