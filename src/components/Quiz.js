@@ -79,7 +79,6 @@ export default function Quiz() {
             resetGame();
           } else {
             if (currentQuestion === selectedAnswers.length) {
-              console.log("no answer chosen!");
               return;
             } else {
               setCurrentQuestion(currentQuestion + 1);

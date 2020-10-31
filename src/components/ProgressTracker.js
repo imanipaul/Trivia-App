@@ -31,7 +31,6 @@ export default function ProgressTracker(props) {
 
   const calculateInnerWidth = (currentQuestion, totalQuestions, width) => {
     if (currentQuestion < 0) {
-      console.log("Game has not started");
       return "Game has not started";
     } else if (currentQuestion === "result") {
       setCompletedWidth(totalWidth);
@@ -41,8 +40,6 @@ export default function ProgressTracker(props) {
 
       //multiply percent completed by total width to get fractional width of progress bar
       setCompletedWidth(percentCompleted * width);
-
-      console.log("completed width", completedWidth);
     }
   };
 
