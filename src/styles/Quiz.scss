@@ -6,7 +6,7 @@
   align-items: center;
   transition: all 0.5s ease;
   @media screen and (max-width: 426px) {
-    height: 90%;
+    // height: 90%;
   }
 
   &.intro {
@@ -16,6 +16,7 @@
 
     button {
       @media screen and (max-width: 1300px) {
+        margin: 0px;
         margin-bottom: 100px;
       }
     }

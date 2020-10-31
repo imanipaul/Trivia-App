@@ -33,15 +33,17 @@ export default function ProgressTracker(props) {
     if (currentQuestion < 0) {
       console.log("Game has not started");
       return "Game has not started";
+    } else if (currentQuestion === "result") {
+      setCompletedWidth(totalWidth);
+    } else {
+      // divide current question by total questions to get percent of game completed
+      let percentCompleted = currentQuestion / totalQuestions;
+
+      //multiply percent completed by total width to get fractional width of progress bar
+      setCompletedWidth(percentCompleted * width);
+
+      console.log("completed width", completedWidth);
     }
-
-    // divide current question by total questions to get percent of game completed
-    let percentCompleted = currentQuestion / totalQuestions;
-
-    //multiply percent completed by total width to get fractional width of progress bar
-    setCompletedWidth(percentCompleted * width);
-
-    console.log("completed width", completedWidth);
   };
 
   return (
