@@ -15,9 +15,11 @@
     border-radius: 20px;
 
     button {
+      margin: 0px;
+      margin-bottom: 5em;
       @media screen and (max-width: 1300px) {
-        margin: 0px;
-        margin-bottom: 100px;
+        // margin: 0 px;
+        // margin-bottom: 100px;
       }
     }
   }
@@ -25,7 +27,7 @@
   button {
     width: 200px;
     height: 70px;
-    margin-bottom: 100px;
+    // margin-bottom: 100px;
     background: linear-gradient(90deg, #6d5fef 0%, #db95fa 100%);
     border-radius: 40px;
     border: none;
@@ -33,6 +35,7 @@
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-size: 22px;
+    margin-top: 5em;
     transition: box-shadow 0.5s ease, transform 0.5s ease;
 
     &.unavailable {
@@ -48,13 +51,16 @@
       }
     }
 
-    @media screen and (max-width: 1300px) {
-      margin-bottom: 0px;
+    @media screen and (max-width: 900px) {
+      // margin-bottom: 0px;
+      margin-top: 1em;
     }
 
     @media screen and (max-width: 426px) {
-      margin-bottom: 0px;
-      margin-top: 40%;
+      width: 160px;
+      height: 50px;
+      // margin-bottom: 0px;
+      // margin-top: 40%;
     }
   }
 }

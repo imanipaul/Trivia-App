@@ -68,10 +68,6 @@ export default function Quiz() {
             ? "unavailable"
             : "available"
         }
-        style={{
-          marginBottom: currentQuestion === "result" && "0px",
-          marginTop: currentQuestion === "result" && "0px",
-        }}
         onClick={() => {
           if (currentQuestion === jsonData.length - 1) {
             setCurrentQuestion("result");
