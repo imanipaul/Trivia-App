@@ -9,7 +9,7 @@ This is a web trivia game built on React, using a static JSON file of trivia dat
 ## Known Issues
 
 - On window resize, sometimes an error is thrown due to the progress tracker not resizing correctly
--
+- Styling issues on smaller breakpoints
 
 ## Post MVP Features
 
@@ -26,11 +26,12 @@ This is a web trivia game built on React, using a static JSON file of trivia dat
 
 ### Code improvements
 
+- Setup unit tests to improve code
 - Setup sass variables for reused colors to reduce redundancy
 
 ## Running the app
 
-Clone the app into your local machine. Once in the project directory you can run:
+Clone the app into your local machine. Once in the project directory you can run the following:
 
 ### `npm start`
 
