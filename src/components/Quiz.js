@@ -11,7 +11,7 @@ export default function Quiz() {
   const [selectedAnswers, setSelectedAnswers] = useState([]);
   const [clickable, setClickable] = useState(true);
   const [score, setScore] = useState(0);
-  const buttonRef = useRef(null);
+  // const buttonRef = useRef(null);
 
   const setButtonState = (status) => {
     switch (status) {
@@ -67,7 +67,7 @@ export default function Quiz() {
         />
       )}
       <button
-        ref={buttonRef}
+        // ref={buttonRef}
         className={
           currentQuestion === selectedAnswers.length
             ? "unavailable"
