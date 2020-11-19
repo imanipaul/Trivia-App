@@ -8,7 +8,7 @@ export default function Question(props) {
   const [shuffled, setShuffled] = useState(false);
 
   useEffect(() => {
-    resetAnswers();
+    // resetAnswers();
     shuffleAnswers(allAnswers);
   }, [props.currentQuestion]);
 
