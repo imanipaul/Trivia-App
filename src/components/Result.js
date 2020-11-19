@@ -12,12 +12,9 @@ export default function Result(props) {
         {props.selectedAnswers.map((answer, index) => (
           <p
             key={index}
-            className="result-answer"
-            className={
-              answer.correct
-                ? "result-answer correct"
-                : "result-answer incorrect"
-            }
+            className={`result-answer ${
+              answer.correct ? "correct" : "incorrect"
+            }`}
           >
             {index + 1} : {answer.value}
           </p>

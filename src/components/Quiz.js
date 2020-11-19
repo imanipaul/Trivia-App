@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import Intro from "./Intro";
 import jsonData from "../data/quizData.json";
 import Question from "./Question";
